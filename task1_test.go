@@ -2,18 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/utherbit/laboratory_work-private_key_encryption_methods/utilities"
 	"testing"
 )
 
 func TestTask1decipherMessage(t *testing.T) {
-	{
-		input := "И.РЮУ.ЪФОБГНО"
-		result := task1decipherMessage(input)
-		fmt.Printf("\nРезультат расшифровки %s - %s;", input, result)
-	}
-	{
-		input := "CЛХГ.ЪЛХО.ФОО.ЩВ"
-		result := task1decipherMessage(input)
-		fmt.Printf("\nРезультат расшифровки %s - %s;", input, result)
-	}
+	fmt.Printf("\n\nЗадача 1\nРасшифровка сообщения по шифру 1")
+	utilities.CheckValidEncryption(t, task1decipherMessage, "И.РЮУ.ЪФОБГНО", "БОЛЬШОИ ВЗРЫВ")
+	utilities.CheckValidEncryption(t, task1decipherMessage, "СЛХГ.ЪЛХО.ФОО.ЩВ", "УСТРОИСТВО ВВОДА")
+	print("\n")
 }
