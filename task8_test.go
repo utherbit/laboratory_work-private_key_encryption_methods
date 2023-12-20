@@ -18,4 +18,5 @@ func TestTask8decipherMessage(t *testing.T) {
 
 	utilities.CheckValidEncryption(t, errHandleDecryptionF, "СЛПИЬНАЕ", "АПЕЛЬСИН")
 	utilities.CheckValidEncryption(t, errHandleDecryptionF, "РОИАГДВН", "ВИНОГРАД")
+	print("\n")
 }

@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/utherbit/laboratory_work-private_key_encryption_methods/utilities"
 	"testing"
 )
 
 func TestTask9KeySelection(t *testing.T) {
-	fmt.Printf("\n\nЗадача 8\nРасшифровка методом перестановки с фиксированным периодом")
+	fmt.Printf("\n\nЗадача 9\nПодбор ключа для шифрования методом перестановки")
 
 	// контрольная проверка
 	checkValidT9KeySelection(t,
@@ -25,20 +26,7 @@ func checkValidT9KeySelection(t *testing.T, f func(e string, u string, d int) []
 
 	key := f(encrypted, unencrypted, d)
 	fmt.Printf("\nввод: {e:%s u:%s d:%d} вывод: %v", encrypted, unencrypted, d, key)
-	if !compareSlice(key, validKey) {
+	if !utilities.CompareSlice(key, validKey) {
 		t.Errorf("Неверный результат расшифровки, ожидалось %v, получено: %v", validKey, key)
 	}
-}
-
-func compareSlice[T interface{ comparable }](a []T, b []T) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-
 }
