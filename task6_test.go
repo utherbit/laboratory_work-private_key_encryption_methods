@@ -8,7 +8,7 @@ import (
 func TestTask6FindGamma(t *testing.T) {
 	fmt.Printf("\n\nЗадача 6\nПоиск ключа гаммирования")
 
-	gamma, err := task6FindGamma("74", "9А", 16)
+	gamma, err := task6FindGamma("74", "9А", 16, 16)
 	if err != nil {
 		t.Error(err)
 	}

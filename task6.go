@@ -7,13 +7,13 @@ import (
 	"strings"
 )
 
-func task6FindGamma(beforeEncrypt, afterEncrypt string, base int) ([]int, error) {
+func task6FindGamma(beforeEncrypt, afterEncrypt string, baseBefore, baseAfter int) ([]int, error) {
 	if len([]rune(beforeEncrypt)) != len([]rune(afterEncrypt)) {
 		return nil, errors.New("lengths are not equal")
 	}
 
-	binBefore := utilities.StrToBitArr(beforeEncrypt, base)
-	binAfter := utilities.StrToBitArr(afterEncrypt, base)
+	binBefore := utilities.StrToBitArr(beforeEncrypt, baseBefore)
+	binAfter := utilities.StrToBitArr(afterEncrypt, baseAfter)
 
 	res := make([]int, 0)
 	for i := 0; i < len(binBefore); i++ {

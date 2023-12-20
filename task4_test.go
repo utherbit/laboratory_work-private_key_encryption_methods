@@ -8,7 +8,11 @@ import (
 
 func TestTask4decipherMessage(t *testing.T) {
 	fmt.Printf("\n\nЗадача 4\nРасшифровка сообщения по шифру Вижинера")
-	utilities.CheckValidEncryption(t, task4decipherMessage, "ШВМБУЖНЯ", "КУЗНЕЧИК")
-	utilities.CheckValidEncryption(t, task4decipherMessage, "ЯБХЪШЮМХ", "СТРЕКОЗА")
+	decryptFunc := func(message string) string {
+		return task4decipherMessage("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ_", message, "ОРЕХ")
+	}
+
+	utilities.CheckValidEncryption(t, decryptFunc, "ШВМБУЖНЯ", "КУЗНЕЧИК")
+	utilities.CheckValidEncryption(t, decryptFunc, "ЯБХЪШЮМХ", "СТРЕКОЗА")
 	print("\n")
 }

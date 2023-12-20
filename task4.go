@@ -2,15 +2,16 @@ package main
 
 import "strings"
 
-var task4vigenereDict = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ_"
-var task4vigenereKey = []rune("ОРЕХ")
+//var task4vigenereDict = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ_"
 
-func task4decipherMessage(inp string) string {
+//var task4vigenereKey = []rune("ОРЕХ")
 
-	dictRunes := []rune(task4vigenereDict)
+func task4decipherMessage(dict, inp, key string) string {
+	keyRunes := []rune(key)
+	dictRunes := []rune(dict)
 	// Сдвиг для символа из ключа task4vigenereKey
 	dictByKeyChar := make(map[rune][]rune)
-	for _, keyChar := range task4vigenereKey {
+	for _, keyChar := range keyRunes {
 		dictIdx := 0
 		// Поиск индекса руны в словаре -> dictIdx
 		for i, dictChar := range dictRunes {
@@ -25,8 +26,8 @@ func task4decipherMessage(inp string) string {
 
 	decryptedChars := make([]string, len(inp))
 	for idx, char := range []rune(inp) {
-		idxKey := idx % len(task4vigenereKey)
-		keyChar := task4vigenereKey[idxKey]
+		idxKey := idx % len(keyRunes)
+		keyChar := keyRunes[idxKey]
 		dict := dictByKeyChar[keyChar]
 
 		dictIdx := 0
